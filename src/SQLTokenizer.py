@@ -39,21 +39,20 @@ class SQLTokenizer:
 
 
 def main(argv):
-        parser = OptionParser(usage="Usage: SQLTokenizer <SQL-fileame>")
-        (options, filename) = parser.parse_args()
-
+	parser = OptionParser(usage="Usage: SQLTokenizer <SQL-fileame>")
+	(options, filename) = parser.parse_args()
 	if len(filename) == 1:
 		if os.path.exists(filename[0]):
 			tokenizer = SQLTokenizer()
 			tokenizer.run(filename[0])
 		else:
-	                parser.print_help()
-        	        print '\nYou need to provide an existing input file.'
+			parser.print_help()
+			print ('\nYou need to provide an existing input file.')
 			exit(1)
 	else:
-                parser.print_help()
-                print '\nYou need to provide an input file.'
-                exit(1)
+		parser.print_help()
+		print ('\nYou need to provide an input file.')
+		exit(1)
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))
